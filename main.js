@@ -54,34 +54,33 @@ canvas.addEventListener("touchmove", my_touchmove);
        
         ctx.beginPath();
         ctx.strokeStyle = color;
-        ctx.lineWidth = width_of_line;
+        ctx.lineWidth = width_line;
 
         console.log("Last position of x and y coordinates = ");
-        console.log("x = " + last_position_of_x + "y = " + last_position_of_y);
-        ctx.moveTo(last_position_of_x, last_position_of_y);
+        console.log("x = " + last_position_x + "y = " + last_position_y);
+        ctx.moveTo(last_position_x, last_position_y);
 
         console.log("Current position of x and y coordinates = ");
         console.log("x  = " + current_position_of_touch_x + "y = " + current_position_of_touch_y);
         ctx.lineTo(current_position_of_touch_x, current_position_of_touch_y);
         ctx.stroke();
-        last_position_of_x = current_position_of_touch_x; 
-        last_position_of_y = current_position_of_touch_y;
+        last_position_x = current_position_of_touch_x; 
+        last_position_y = current_position_of_touch_y;
         }
 
+        canvas.addEventListener("touchstart", my_touchstart);
 
         function my_touchstart(e)
     {
         //Addictonal Activity start
-        color = document.getElementById("color").value;
-        width_of_line = document.getElementById("width_of_line").value;
+        color = document.getElementById("color_line").value;
+        width_of_line = document.getElementById("width_line").value;
         //Addictonal Activity ends
 
-        last_position_of_x=e.touches[0].clientX-canvas.offsetLeft;
-                last_position_of_y=e.touches[0].clientY-canvas.offsetTop;
+        last_position_x=e.touches[0].clientX-canvas.offsetLeft;
+                last_position_y=e.touches[0].clientY-canvas.offsetTop;
 
     }
 
     
-    function removecanvas(){
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-    }
+    
